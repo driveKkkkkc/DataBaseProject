@@ -1,0 +1,25 @@
+server:
+  port: 9090
+
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    #    driver-class-name: com.mysql.jdbc.Driver
+    #此处增加编码规则以及SSL，公共访问等，在MySQL8.0+中该问题容易出现错误
+    url: jdbc:mysql://114.132.156.246:3306/database_design?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: 1293108262
+    name: defaultDataSource
+
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*.xml
+  global-config:
+    db-config:
+      id-type: auto
+
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
